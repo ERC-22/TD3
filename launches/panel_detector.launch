@@ -1,0 +1,121 @@
+<launch>
+    <arg name="markerSize"      default="0.05"/>    <!-- in m -->
+    <arg name="marker_frame"    default="aruco_marker_frame"/>
+    <!-- <arg name="ref_frame"       default="tool_gripper"/>  leave empty and the pose will be published wrt param parent_name -->
+    <arg name="ref_frame"       default="tool0"/>  <!-- leave empty and the pose will be published wrt param parent_name -->
+    <arg name="corner_refinement" default="SUBPIX" /> <!-- NONE, HARRIS, LINES, SUBPIX -->
+
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_1">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="1"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_1" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_2">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="2"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_2" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_3">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="3"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_3" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_4">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="4"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_4" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+    
+    <node pkg="aruco_ros" type="single" name="aruco_single_5">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="5"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_5" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_6">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="6"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_6" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_7">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="7"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_7" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_8">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="8"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_8" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+
+    <node pkg="aruco_ros" type="single" name="aruco_single_9">
+        <remap from="/camera_info" to="/camera_image/camera_info" />
+        <remap from="/image" to="/camera_image/image_raw" />
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="$(arg markerSize)"/>
+        <param name="marker_id"          value="9"/>
+        <param name="reference_frame"    value="$(arg ref_frame)"/>   <!-- frame in which the marker pose will be refered -->
+        <param name="camera_frame"       value="camera_link"/>
+        <param name="marker_frame"       value="marker_frame_9" />
+        <param name="corner_refinement"  value="$(arg corner_refinement)" />
+    </node>
+    
+
+
+
+</launch>
+
