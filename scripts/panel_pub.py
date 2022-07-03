@@ -34,12 +34,7 @@ wpose=move_group.get_current_pose().pose
 ##########################################################
 
 def grip_close():
-
-    process = subprocess.Popen("rostopic pub /gripper_command std_msgs/String 'close'", shell=True,start_new_session=True)
-    time.sleep(1)
-
-    process.terminate()
-    process.wait()
+	pub_grip.publish("close")
 
 ##########################################################
 
@@ -379,6 +374,7 @@ move_cartesian(0.07,0,0,1)
 
 
 
+pub_grip=rospy.Publisher("/gripper_command" , String,queue_size=1)
 
 
 rospy.Subscriber("/aruco_single_1/pose",PoseStamped,cb_1,queue_size = 10)

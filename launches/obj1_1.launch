@@ -1,0 +1,10 @@
+<launch>
+    
+    <arg name="press_switch"      default="2"/> 
+    <param name="Switch_ID"     type="int"    value="$(arg press_switch)"/>
+
+    <node pkg="td3" type="panel_pub.py" name="panel_pub">
+        <param name="Switch_ID"         value="$(arg press_switch)"/>
+    </node>
+</launch>
+
