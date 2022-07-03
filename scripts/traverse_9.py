@@ -5,6 +5,8 @@ import moveit_commander
 import moveit_msgs.msg 
 from std_msgs.msg import Int32
 from math import pi
+import time
+import subprocess
 from moveit_commander.conversions import pose_to_list
 #****************************************************************
 moveit_commander.roscpp_initialize(sys.argv)
@@ -30,6 +32,24 @@ def move_cartesian(x,y,z,scale):
   move_group.execute(plan, wait=True)
   move_group.stop()
 #********************************************************************
+def grip_open():
+    process = subprocess.Popen("rostopic pub /gripper_command std_msgs/String 'open'", shell=True,start_new_session=True)
+    time.sleep(7)
+
+    process.terminate()
+    process.wait()
+
+#*********************************************************************
+def back_home() :
+    joint_goal = move_group.get_current_joint_values()
+    joint_goal[0] = 0
+    joint_goal[1] = -2*pi / 3
+    joint_goal[2] = 100 *pi /180
+    joint_goal[3] = pi / 9
+    joint_goal[4] = pi / 2
+    joint_goal[5] = -pi /2
+    move_group.go(joint_goal, wait=True)
+#*********************************************************************
 def move_rotational(joint_goal) : 
   move_group.go(joint_goal, wait=True)
   move_group.stop()
@@ -61,6 +81,7 @@ def detect_aruco_14():
 def detect_aruco_10():
   pose = [0,-pi/2,pi/2,pi/2,pi/2,-pi/2]  #detect_aruco_left
   move_rotational(pose)
+  back_home()
 #********************************************************************
 def detect_aruco_12():
     pose = [-1,-2*pi/3,5*pi/9+0.2,pi/9,pi/2,-pi/2]
@@ -137,7 +158,8 @@ def callback (id):
 #*****************************************************************       
 if __name__ == '__main__':
     try:
-      #counter
+      back_home()
+      grip_open()
       listener()
     except rospy.ROSInterruptException:
       pass

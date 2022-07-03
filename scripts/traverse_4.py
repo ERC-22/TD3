@@ -83,6 +83,7 @@ def detect_aruco_14():
 def detect_aruco_10():
   pose = [0,-pi/2,pi/2,pi/2,pi/2,-pi/2]  #detect_aruco_left
   move_rotational(pose)
+  back_home()
 #********************************************************************
 def detect_aruco_12():
     pose = [-1,-2*pi/3,5*pi/9+0.2,pi/9,pi/2,-pi/2]
