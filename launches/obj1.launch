@@ -3,7 +3,7 @@
     <arg name="press_switch"      default="2"/> 
     <param name="Switch_ID"     type="int"    value="$(arg press_switch)"/>
 
-    <node pkg="launch_package" type="panel_auto.py" name="panel_auto">
+    <node pkg="td3" type="panel_auto.py" name="panel_auto">
         <param name="Switch_ID"         value="$(arg press_switch)"/>
     </node>
 </launch>
