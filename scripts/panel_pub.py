@@ -367,6 +367,8 @@ def back_home() :
 
 ##########################################################
 
+pub_grip=rospy.Publisher("/gripper_command" , String,queue_size=1)
+
 # grip_open()
 back_home()
 grip_close()
@@ -374,7 +376,6 @@ move_cartesian(0.07,0,0,1)
 
 
 
-pub_grip=rospy.Publisher("/gripper_command" , String,queue_size=1)
 
 
 rospy.Subscriber("/aruco_single_1/pose",PoseStamped,cb_1,queue_size = 10)
